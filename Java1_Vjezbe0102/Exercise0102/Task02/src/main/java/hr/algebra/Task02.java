@@ -1,6 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 package hr.algebra;
 
 import hr.algebra.utilities.NumberUtils;
@@ -8,10 +5,6 @@ import static hr.algebra.utilities.ScannerUtils.readChar;
 import static hr.algebra.utilities.ScannerUtils.readInt;
 import java.util.Scanner;
 
-/**
- *
- * @author daniel.bele
- */
 public class Task02 {
 
     public static void main(String[] args) {
@@ -41,5 +34,4 @@ public class Task02 {
         System.out.printf("Hexadecimal: %s%n", Integer.toHexString(number));
     }
 
-    
 }
