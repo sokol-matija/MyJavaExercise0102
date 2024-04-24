@@ -116,9 +116,9 @@ public class Task03 extends javax.swing.JFrame {
         int number = Integer.parseInt(tfDecimal.getText().trim());
         StringBuilder report = new StringBuilder();
         report
-                .append("Binary: ").append(NumberUtils.convertDecimal(number, 2)).append(System.lineSeparator())
-                .append("Octal: ").append(NumberUtils.convertDecimal(number, 8)).append(System.lineSeparator())
-                .append("Hexadecimal: ").append(NumberUtils.convertDecimal(number, 16));
+                .append("Binary: ").append(NumberUtils.convert(number, 2)).append(System.lineSeparator())
+                .append("Octal: ").append(NumberUtils.convert(number, 8)).append(System.lineSeparator())
+                .append("Hexadecimal: ").append(NumberUtils.convert(number, 16));
 
         JOptionPane.showMessageDialog(null, report, "All conversions", JOptionPane.INFORMATION_MESSAGE);
         cbConversionsActionPerformed(null);
@@ -133,11 +133,11 @@ public class Task03 extends javax.swing.JFrame {
         String selected = cbConversions.getSelectedItem().toString();
         switch (selected) {
             case "Binary" ->
-                lbResult.setText(NumberUtils.convertDecimal(number, 2));
+                lbResult.setText(NumberUtils.convert(number, 2));
             case "Octal" ->
-                lbResult.setText(NumberUtils.convertDecimal(number, 8));
+                lbResult.setText(NumberUtils.convert(number, 8));
             case "Hexadecimal" ->
-                lbResult.setText(NumberUtils.convertDecimal(number, 16));
+                lbResult.setText(NumberUtils.convert(number, 16));
             default ->
                 lbResult.setText("");
         }

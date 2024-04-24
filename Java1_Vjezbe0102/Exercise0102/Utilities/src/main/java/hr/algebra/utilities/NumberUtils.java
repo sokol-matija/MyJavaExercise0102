@@ -15,7 +15,7 @@ public class NumberUtils {
     private NumberUtils() {
     }
 
-    public static String convertDecimal(int number, int base) {
+    public static String convert(int number, int base) {
         // final restrictions
         if (number <= 0 || base <= 0 || base > CONVERSION_TABLE.length) {
             return "0";

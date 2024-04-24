@@ -105,7 +105,11 @@ public class MyTask03 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbConversionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbConversionActionPerformed
-        // TODO add your handling code here:
+        if (!formValid()) {
+            return;
+        }
+        //TODO  Finish this VIDEO: 50:12
+
     }//GEN-LAST:event_cbConversionActionPerformed
 
     private void cbShowAllConversionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowAllConversionsActionPerformed
@@ -156,4 +160,26 @@ public class MyTask03 extends javax.swing.JFrame {
     private javax.swing.JLabel lbResult;
     private javax.swing.JTextField tfDecimal;
     // End of variables declaration//GEN-END:variables
+
+    private boolean formValid() {
+        clearForm();
+        boolean ok = false;
+
+        try {
+            int n = Integer.parseInt(tfDecimal.getText().trim());
+            ok = n >= 0;
+        } catch (NumberFormatException numberFormatException) {
+            ok = false;
+        }
+        if (!ok) {
+            lbError.setText("Enter valid value");
+            tfDecimal.requestFocus();
+        }
+
+        return ok;
+    }
+
+    private void clearForm() {
+        lbError.setText(" ");
+    }
 }
