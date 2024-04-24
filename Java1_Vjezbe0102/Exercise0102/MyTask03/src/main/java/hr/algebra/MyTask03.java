@@ -49,6 +49,11 @@ public class MyTask03 extends javax.swing.JFrame {
         });
 
         cbShowAllConversions.setText("Show all conversions");
+        cbShowAllConversions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbShowAllConversionsActionPerformed(evt);
+            }
+        });
 
         lbError.setForeground(new java.awt.Color(255, 51, 51));
 
@@ -102,6 +107,10 @@ public class MyTask03 extends javax.swing.JFrame {
     private void cbConversionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbConversionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbConversionActionPerformed
+
+    private void cbShowAllConversionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowAllConversionsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbShowAllConversionsActionPerformed
 
     /**
      * @param args the command line arguments
