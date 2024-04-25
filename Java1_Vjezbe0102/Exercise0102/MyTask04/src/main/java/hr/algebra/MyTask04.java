@@ -5,6 +5,11 @@
 package hr.algebra;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -19,6 +24,7 @@ public class MyTask04 extends javax.swing.JFrame {
      */
     public MyTask04() {
         initComponents();
+        hideErrors();
     }
 
     /**
@@ -30,21 +36,143 @@ public class MyTask04 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bgGender = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        tfFirst = new javax.swing.JTextField();
+        lbFirstError = new javax.swing.JLabel();
+        lbLastError = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        tfLast = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        lbSalaryError = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        tfSalary = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        btnShow = new javax.swing.JButton();
+        spAge = new javax.swing.JSpinner();
+        rbFemale = new javax.swing.JRadioButton();
+        rbMale = new javax.swing.JRadioButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Person Details");
+
+        jLabel1.setText("First name:");
+
+        lbFirstError.setForeground(new java.awt.Color(255, 51, 51));
+        lbFirstError.setText("X");
+
+        lbLastError.setForeground(new java.awt.Color(255, 51, 51));
+        lbLastError.setText("X");
+
+        jLabel5.setText("Last name: ");
+
+        jLabel7.setText("Age:");
+
+        lbSalaryError.setForeground(new java.awt.Color(255, 51, 51));
+        lbSalaryError.setText("X");
+
+        jLabel9.setText("Salary:");
+
+        jLabel11.setText("Gender: ");
+
+        btnShow.setText("Show");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
+
+        spAge.setModel(new javax.swing.SpinnerNumberModel(18, 18, 65, 1));
+
+        bgGender.add(rbFemale);
+        rbFemale.setSelected(true);
+        rbFemale.setText("Female");
+
+        bgGender.add(rbMale);
+        rbMale.setText("Male");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192)
+                        .addComponent(spAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(44, 44, 44)
+                            .addComponent(tfLast, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lbLastError, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(44, 44, 44)
+                            .addComponent(tfFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lbFirstError, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(rbFemale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rbMale))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(tfSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbSalaryError, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbFirstError, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbLastError, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbSalaryError, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbFemale)
+                    .addComponent(rbMale))
+                .addGap(44, 44, 44)
+                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        if (!formValid()) {
+            return;
+        }
+    }//GEN-LAST:event_btnShowActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,5 +196,76 @@ public class MyTask04 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup bgGender;
+    private javax.swing.JButton btnShow;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbFirstError;
+    private javax.swing.JLabel lbLastError;
+    private javax.swing.JLabel lbSalaryError;
+    private javax.swing.JRadioButton rbFemale;
+    private javax.swing.JRadioButton rbMale;
+    private javax.swing.JSpinner spAge;
+    private javax.swing.JTextField tfFirst;
+    private javax.swing.JTextField tfLast;
+    private javax.swing.JTextField tfSalary;
     // End of variables declaration//GEN-END:variables
+
+    private void hideErrors() {
+        List<JLabel> errorLabelList = List.of(lbFirstError, lbLastError, lbSalaryError);
+        errorLabelList.forEach(e -> e.setVisible(false));
+    }
+
+    private boolean formValid() {
+        hideErrors();
+        boolean ok = true;
+
+        Map<JTextField, JLabel> map = new HashMap<>();
+        map.put(tfFirst, lbFirstError);
+        map.put(tfLast, lbLastError);
+        map.put(tfSalary, lbSalaryError);
+
+        ok = formValidationUsingMap(map, ok);
+
+        //ok = formValidationUsingBooleanMapLogic(map, ok);
+        return ok;
+    }
+
+    private boolean formValidationUsingBooleanMapLogic(Map<JTextField, JLabel> map, boolean ok) {
+        for (Map.Entry<JTextField, JLabel> entry : map.entrySet()) {
+            JTextField textField = entry.getKey();
+            JLabel errorLabel = entry.getValue();
+
+            boolean isSalaryField = (textField == tfSalary);
+            String text = textField.getText();
+
+            boolean isBlank = text.isBlank();
+            boolean isValidSalary = (isSalaryField && text.matches("\\d+(\\.\\d+)?"));
+
+            errorLabel.setVisible(isBlank || (isSalaryField && !isValidSalary));
+            ok &= (!isBlank && (!isSalaryField || isValidSalary));
+        }
+        return ok;
+    }
+
+    private boolean formValidationUsingMap(Map<JTextField, JLabel> map, boolean ok) {
+        for (Map.Entry<JTextField, JLabel> entry : map.entrySet()) {
+
+            JTextField textField = entry.getKey();
+            JLabel errorLabel = entry.getValue();
+
+            if (textField.getText().isBlank()) {
+                errorLabel.setVisible(true);
+                ok = false;
+            } else if (textField == tfSalary && !textField.getText().matches("\\d+(\\.\\d+)?")) {
+                errorLabel.setVisible(true);
+                ok = false;
+            }
+        }
+        return ok;
+    }
+
 }
