@@ -22,9 +22,9 @@ public class Task02 {
 
     private static void printNumberInFormatsManually(int number) {
         System.out.printf("Decade: %d%n", number);
-        System.out.printf("Binary: %s%n", NumberUtils.convertDecimal(number, 2));
-        System.out.printf("Octal: %s%n", NumberUtils.convertDecimal(number, 8));
-        System.out.printf("Hexadecimal: %s%n", NumberUtils.convertDecimal(number, 16));
+        System.out.printf("Binary: %s%n", NumberUtils.convert(number, 2));
+        System.out.printf("Octal: %s%n", NumberUtils.convert(number, 8));
+        System.out.printf("Hexadecimal: %s%n", NumberUtils.convert(number, 16));
     }
 
     private static void printNumberInFormats(int number) {

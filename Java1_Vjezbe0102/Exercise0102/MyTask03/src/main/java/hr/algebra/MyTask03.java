@@ -4,6 +4,9 @@
  */
 package hr.algebra;
 
+import hr.algebra.utilities.NumberUtils;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author msokol
@@ -108,12 +111,36 @@ public class MyTask03 extends javax.swing.JFrame {
         if (!formValid()) {
             return;
         }
-        //TODO  Finish this VIDEO: 50:12
+
+        String selected = cbConversion.getSelectedItem().toString();
+        int n = Integer.parseInt(tfDecimal.getText().trim());
+        switch (selected) {
+            case "Bin" ->
+                lbResult.setText(NumberUtils.convert(n, 2));
+            case "Octo" ->
+                lbResult.setText(NumberUtils.convert(n, 8));
+            case "Hex " ->
+                lbResult.setText(NumberUtils.convert(n, 16));
+
+            default ->
+                lbResult.setText("");
+        }
 
     }//GEN-LAST:event_cbConversionActionPerformed
 
     private void cbShowAllConversionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowAllConversionsActionPerformed
-        // TODO add your handling code here:
+        if (!formValid()) {
+            return;
+        }
+
+        int n = Integer.parseInt(tfDecimal.getText().trim());
+        StringBuilder sbResult = new StringBuilder();
+        sbResult.append("Bin:").append(Integer.toString(n, 2)).append(System.lineSeparator())
+                .append("Hex:").append(Integer.toString(n, 8)).append(System.lineSeparator())
+                .append("Hex:").append(Integer.toString(n, 16)).append(System.lineSeparator());
+        JOptionPane.showMessageDialog(null, sbResult, "All Conversions", JOptionPane.INFORMATION_MESSAGE);
+
+        cbConversionActionPerformed(null);
     }//GEN-LAST:event_cbShowAllConversionsActionPerformed
 
     /**
