@@ -5,11 +5,14 @@
 package hr.algebra;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
+import hr.algebra.model.Person;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -25,6 +28,7 @@ public class MyTask04 extends javax.swing.JFrame {
     public MyTask04() {
         initComponents();
         hideErrors();
+        setActionCommands();
     }
 
     /**
@@ -172,6 +176,14 @@ public class MyTask04 extends javax.swing.JFrame {
         if (!formValid()) {
             return;
         }
+        Person person = new Person(
+                tfFirst.getText().trim(),
+                tfLast.getText().trim(),
+                (int) spAge.getValue(),
+                Double.parseDouble(tfSalary.getText().trim()),
+                bgGender.getSelection().getActionCommand());
+        JOptionPane.showMessageDialog(null, person, "Person data", JOptionPane.INFORMATION_MESSAGE);
+        clearForm();
     }//GEN-LAST:event_btnShowActionPerformed
 
     /**
@@ -266,6 +278,19 @@ public class MyTask04 extends javax.swing.JFrame {
             }
         }
         return ok;
+    }
+
+    private void setActionCommands() {
+        rbFemale.setActionCommand(rbFemale.getText());
+        rbMale.setActionCommand(rbMale.getText());
+    }
+
+    private void clearForm() {
+        tfFirst.setText("");
+        tfLast.setText("");
+        tfSalary.setText("");
+        rbFemale.setSelected(true);
+        spAge.setValue(((SpinnerNumberModel) spAge.getModel()).getMinimum());
     }
 
 }
