@@ -15,6 +15,7 @@
         <module>Task03</module>
         <module>Task04</module>
         <module>MyTask03</module>
+        <module>MyTask04</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
